@@ -1,0 +1,31 @@
+services:
+  app:
+    build: .
+    container_name: museo-react
+    # stdin_open + tty mantienen el contenedor vivo sin correr nada
+    stdin_open: true
+    tty: true
+    ports:
+      - "5173:5173"  # Vite dev server
+      - "4173:4173"  # Vite preview (npm run preview)
+    volumes:
+      - ./museo:/app                    # sincroniza el código fuente con el host
+      - /app/node_modules         # preserva los node_modules del contenedor
+    environment:
+      - NODE_ENV=development
+
+# Para usar el contenedor:
+#
+#   Iniciar (en segundo plano):
+#     docker-compose up -d
+#
+#   Abrir una shell dentro del contenedor:
+#     docker-compose exec app sh
+#
+#   Luego, dentro del contenedor:
+#     npm run dev      → http://localhost:5173
+#     npm run build    → genera la carpeta dist/
+#     npm run preview  → sirve el build en http://localhost:4173
+#
+#   Detener:
+#     docker-compose down
