@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import './Card.css'
 
@@ -20,6 +21,16 @@ function Card({ item }) {
       </div>
     </div>
   )
+}
+
+const artworkItemProp = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  image_id: PropTypes.string,
+})
+
+Card.propTypes = {
+  item: artworkItemProp.isRequired,
 }
 
 export default Card

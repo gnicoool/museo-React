@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { getArtworkById } from '../museoAPI'
+import CardDetalles from '../components/CardDetalles'
 
 function ItemDetalle() {
   const { id } = useParams()
@@ -21,35 +22,22 @@ function ItemDetalle() {
     : null
 
   return (
-  <div className="detalle-page">
-    <Link to="/items" className="btn-back"> Volver al listado</Link>
-    <div className="detalle-content">
+    <div className="detalle-page">
+      <Link to="/items" className="btn-back"> Volver al listado</Link>
+      <div className="detalle-content">
         {imageUrl && (
-            <div className="detalle-img-wrapper">
-                <img src={imageUrl} alt={item.title} />
-            </div>
+          <div className="detalle-img-wrapper">
+            <img src={imageUrl} alt={item.title} />
+          </div>
         )}
-        
-        <div className="detalle-info">
-            <h2>{item.title}</h2>
 
-            <div className="detalle-meta">
-                {item.artist_title && (
-                <div className="detalle-field">
-                    <span className="detalle-label">Autor</span>
-                    <span className="detalle-value">{item.artist_title}</span>
-                </div>
-                )}
-                {item.date_display && (
-                <div className="detalle-field">
-                    <span className="detalle-label">Fecha</span>
-                    <span className="detalle-value">{item.date_display}</span>
-                </div>
-                )}
-            </div>
-        </div>
+        <CardDetalles
+          title={item.title}
+          artistTitle={item.artist_title}
+          dateDisplay={item.date_display}
+        />
+      </div>
     </div>
-</div>
   )
 }
 

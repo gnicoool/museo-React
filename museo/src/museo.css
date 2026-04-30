@@ -411,7 +411,11 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding-top: 8px;
+  padding: 22px 24px 26px;
+  background: var(--bg-card-img);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
 }
 
 .detalle-info h2 {

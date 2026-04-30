@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types'
 import { NavLink, Outlet } from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
 
-export default function Layout() {
+function Layout() {
   const { theme, toggle: toggleTheme } = useTheme()
 
   return (
@@ -38,3 +39,9 @@ export default function Layout() {
     </div>
   )
 }
+
+Layout.propTypes = {
+  children: PropTypes.node,
+}
+
+export default Layout
