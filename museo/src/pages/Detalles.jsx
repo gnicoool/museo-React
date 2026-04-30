@@ -1,7 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { getArtworkById } from '../museoAPI'
-import '../museo.css'
 
 function ItemDetalle() {
   const { id } = useParams()
@@ -23,7 +22,7 @@ function ItemDetalle() {
 
   return (
   <div className="detalle-page">
-    <Link to="/items" className="btn-back">← Volver al listado</Link>
+    <Link to="/items" className="btn-back"> Volver al listado</Link>
     <div className="detalle-content">
         {imageUrl && (
             <div className="detalle-img-wrapper">

@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import { getArtworks } from '../museoAPI'
 import { Link } from 'react-router-dom'
 import Card from '../components/Card'
-import '../museo.css'
 
 function Items() {
   const [items, setItems] = useState([])
